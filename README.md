@@ -1,4 +1,4 @@
-##### Project of SQL Database Design - online rental company
+# Project of SQL Database Design - online rental company
 After onesemester's study of the course "Database Management System",the database software introduced in this course is SQLserver and mysql, this paper will start with requirement analysis step bystep and design a simulation for a online rental company. This is the project that done with my groupmate during my postgraduate study.
 ## 1.Company Background
 Friday Company is a recently established online rental company specializing in short-term leasing electronics, outdoor equipment, and luxury goods. The company offers a wide range of products in the electronics category, including the latest smartphones, tablets, photography equipment, headphones, speakers, televisions, and home appliances. Their outdoor equipment selection includes camping gear, hiking equipment, and more. The company offers high-end brand-name handbags, watches, and more in the luxury goods category.
