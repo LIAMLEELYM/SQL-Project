@@ -1,10 +1,6 @@
+remote_theme: pages-themes/primer@v0.6.0
 title: DataBase Design - online rental company
 description: It is the project about SQL DataBase Design during my postgraduate study.
 show_downloads: false
 github:
   is_project_page: false
-
-
-remote_theme: pages-themes/primer@v0.6.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
