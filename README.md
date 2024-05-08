@@ -131,7 +131,9 @@ Order and Logistics information: one to many<br>
 ### 3.2 ER Diagram
 ![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/14835ce0-2733-4bc6-a1e6-a83f91fb09fa)
 ## 4.Logical DB Design
-### 4.1Relation vender
+4.1 We separated table Brand and table Class from table Commodity to reach third normal form.
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/b5d65067-c5b6-49ce-8883-2fdb2c64a5f6)
+### 4.2 Relation vender
 ![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/2ab96871-49f1-4522-a3e4-c51fc5c66f08)
 ## 5. Physical Database Design
 In the physical design, we chose SQLServer19 as the database management system. Based on the relationship model in logical design, we created the following tables:
@@ -230,13 +232,15 @@ INSERT INTO Class (class_id, class_name) VALUES<br>
 (1, 'Electronics'), (2, 'Luxury Bags'), (3, 'Sports Cars'),<br>
 (4, 'Smartphones'), (5, 'Watches'), (6, 'Laptops'),<br>
 (7, 'Cameras'), (8, 'Headphones'), (9, 'Gaming Consoles'),<br>
-(10, 'Drones');<br>
+(10, 'Drones');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/87a01e47-983d-49cd-83aa-ef2a6a5d8be2)
 #2. Brand Table & Data<br>
 CREATE TABLE Brand (<br>
  brand_id INT PRIMARY KEY NOT NULL, brand_name VARCHAR(255) NOT NULL);<br>
 INSERT INTO Brand (brand_id, brand_name) VALUES<br>
 (1, 'Sony'),(2, 'Gucci'),(3, 'Ferrari'),(4, 'Apple'),<br>
-(5, 'Rolex'),(6, 'Nintendo'),(7, 'DJI');<br>
+(5, 'Rolex'),(6, 'Nintendo'),(7, 'DJI');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/ec4c3afc-a5ef-4348-8813-654850cb8e72)
 #3. Commodity Table & Data<br>
 CREATE TABLE Commodity (<br>
  good_id INT PRIMARY KEY NOT NULL, good_name VARCHAR(255) NOT NULL,<br>
@@ -258,7 +262,8 @@ class_id, brand_id, good_status, good_month) VALUES<br>
 (7, 'DSLR Camera', 6, '24.2 MP with 4K video recording', 89.9, 7, 1, 'Y', 27),<br>
 (8, 'AirPods', 5, 'Wireless design', 34.9, 8,4 , 'N', 33),<br>
 (9, 'Switch Console', 6, 'Portable gaming console', 29.9, 9, 6, 'Y', 6),<br>
-(10, 'Quadcopter Drone', 5, 'With 4K camera and GPS', 79.9, 10, 7, 'Y', 6);<br>
+(10, 'Quadcopter Drone', 5, 'With 4K camera and GPS', 79.9, 10, 7, 'Y', 6);<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/5c02dd74-dcd7-4faf-a052-0ef4549a8058)
 #4. Customer Table & Data<br>
 CREATE TABLE Customer (<br>
  cu_id INT PRIMARY KEY NOT NULL, cu_name VARCHAR(255) NOT NULL,<br>
@@ -289,7 +294,8 @@ cu_po, cu_quiz, cu_answer, cu_type, cu_address1, cu_address2, cu_address3) VALUE
 (19, 'Customer19', '18667819357', 'password0019', 'customer19@example.com', 'Alipay', 
 'Gold', 190, 'Favorite color?', 'Blue', 'Enterprise', '19 Main St', 'Apt 19', 'City19, Country19'),<br>
 (20, 'Customer20', '12345678201', 'password0020', 'customer20@example.com', 'Wechat Pay', 
-'Silver', 200, 'Favorite color?', 'Red', 'Enterprise', '20 Main St', 'Apt 20', 'City20, Country20');<br>
+'Silver', 200, 'Favorite color?', 'Red', 'Enterprise', '20 Main St', 'Apt 20', 'City20, Country20');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/2869ade7-a293-43e4-857f-fddbf61cbd53)
 #5. Individual Table & Data<br>
 CREATE TABLE Individual (<br>
  cu_id INT PRIMARY KEY, in_realname VARCHAR(255) NOT NULL,<br>
@@ -301,7 +307,8 @@ INSERT INTO Individual (cu_id, in_realname, in_realid, in_birth, in_gender) VALU
 (12, 'Jane Doe12', 'ID000000000012', '1992-01-01', 'Female'),<br>
 (13, 'John Doe13', 'ID000000000013', '1993-01-01', 'Male'),<br>
 (14, 'Jane Doe14', 'ID000000000014', '1994-01-01', 'Female'),<br>
-(15, 'John Doe15', 'ID000000000015', '1995-01-01', 'Male');<br>
+(15, 'John Doe15', 'ID000000000015', '1995-01-01', 'Male');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/cd20ff5d-ed88-407a-bdd4-1d1d4f2a386f)
 #6. Enterprise Table & Data<br>
 CREATE TABLE Enterprise( cu_id INT PRIMARY KEY, enter_taxID VARCHAR(20)<br>
 NOT NULL, enter_name VARCHAR(255) NOT NULL, FOREIGN KEY (cu_id)<br>
@@ -309,7 +316,8 @@ REFERENCES Customer(cu_id));<br>
 INSERT INTO Enterprise (cu_id, enter_taxID, enter_name) VALUES<br>
 (16, 'TAX000000000016', 'Enterprise16'), (17, 'TAX000000000017', 'Enterprise17'),<br>
 (18, 'TAX000000000018', 'Enterprise18'), (19, 'TAX000000000019', 'Enterprise19'),<br>
-(20, 'TAX000000000020', 'Enterprise20');<br>
+(20, 'TAX000000000020', 'Enterprise20');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/0c0b24fb-196f-413c-9db6-9124fdc44e7e)
 #7. CustomerService Table & Data<br>
 CREATE TABLE CustomerService (<br>
  help_id INT PRIMARY KEY NOT NULL, help_pw VARCHAR(255) NOT NULL,<br>
@@ -327,7 +335,8 @@ help_contact, help_class) VALUES<br>
 (7, 'service007', 'Service Agent 7', 'Female', 4.3, 'service7@example.com', 'Cameras'),<br>
 (8, 'service008', 'Service Agent 8', 'Male', 4.2, 'service8@example.com', 'Headphones'),<br>
 (9, 'service009', 'Service Agent 9', 'Female', 3.8, 'service9@example.com', 'Gaming Consoles'),<br>
-(10, 'service010', 'Service Agent 10', 'Male', 4.0, 'service10@example.com', 'Drones');<br>
+(10, 'service010', 'Service Agent 10', 'Male', 4.0, 'service10@example.com', 'Drones');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/56445857-f3ab-4e3c-8732-b9ac057a653c)
 #8. Supplier Table & Data<br>
 CREATE TABLE Supplier (<br>
  shop_id INT PRIMARY KEY NOT NULL, shop_name VARCHAR(255) NOT NULL,<br>
@@ -340,22 +349,26 @@ shop_type) VALUES<br>
 (3, 'Supplier 3', '3 Supplier St', 'Lic003', 'contact3@example.com', 'Y'),<br>
 (4, 'Supplier 4', '4 Supplier St', 'Lic004', 'contact4@example.com', 'N'),<br>
 (5, 'Supplier 5', '5 Supplier St', 'Lic005', 'contact5@example.com', 'N'),<br>
-(6, 'Supplier 6', '6 Supplier St', 'Lic006', 'contact6@example.com', 'N');<br>
+(6, 'Supplier 6', '6 Supplier St', 'Lic006', 'contact6@example.com', 'N');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/d8879f12-4b1b-4775-9b41-dacd440ba386)
 #9. SelfSuppliers Table & Data<br>
 CREATE TABLE SelfSuppliers ( shop_id INT PRIMARY KEY NOT NULL, tank_id INT <br>
 NOT NULL, FOREIGN KEY (shop_id) REFERENCES Supplier(shop_id));<br>
-INSERT INTO SelfSuppliers (shop_id, tank_id) VALUES (1, 1),(2, 2),(3, 3);<br>
+INSERT INTO SelfSuppliers (shop_id, tank_id) VALUES (1, 1),(2, 2),(3, 3);<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/2dc4927d-6761-4af9-8edb-e3e0982c807f)
 #10. OtherSupplier Table & Data<br>
 CREATE TABLE OtherSupplier (<br>
  shop_id INT PRIMARY KEY NOT NULL, entry_fee DECIMAL(10, 2) NOT NULL,<br>
  FOREIGN KEY (shop_id) REFERENCES Supplier(shop_id));<br>
-INSERT INTO OtherSupplier (shop_id, entry_fee) VALUES(4, 1000),(5, 2000),(6, 1500);<br>
+INSERT INTO OtherSupplier (shop_id, entry_fee) VALUES(4, 1000),(5, 2000),(6, 1500);<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/ef698618-0787-40d1-ae6c-a464cf377dc6)
 #11. Warehouse Table & Data<br>
 CREATE TABLE Warehouse ( tank_id INT PRIMARY KEY NOT NULL,<br>
  tank_name VARCHAR(255) NOT NULL, tank_add VARCHAR(255) NOT NULL);<br>
 INSERT INTO Warehouse (tank_id, tank_name, tank_add) VALUES<br>
 (1, 'Warehouse 1', 'China,Gouangdong Province,Goungzhou'),<br>
-(2, 'Warehouse 2', 'China,Shanghai'), (3, 'Warehouse 3', 'China,Liaoning Province,Shenyang');<br>
+(2, 'Warehouse 2', 'China,Shanghai'), (3, 'Warehouse 3', 'China,Liaoning Province,Shenyang');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/f4f0bbda-3ed6-4903-a971-08f13a89fa3a)
 #12. Orders Table & Data<br>
 CREATE TABLE Orders (<br>
  or_id INT PRIMARY KEY NOT NULL, or_now VARCHAR(255) NOT NULL,<br>
@@ -369,6 +382,7 @@ VALUES <br>
 (25, 16, '435 Main St', 'in process',299), (26, 15, '436 Main St', 'finished', 229.9),<br>
 (27, 14, '437 Main St','in process', 89.9), (28, 13, '438 Main St', 'in process',34.9),<br>
 (29, 12, '439 Main St','in process', 29.9), (30, 20, '440 Main St','pending', 79.9);<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/f41d9315-08c4-4b32-9ead-038c4ef4d9d1)
 #13. AfterSalesServiceOrder Table & Data<br>
 CREATE TABLE AfterSalesServiceOrder (<br>
  job_id INT PRIMARY KEY NOT NULL, or_id INT NOT NULL,<br>
@@ -380,7 +394,8 @@ INSERT INTO AfterSalesServiceOrder VALUES (25, 25, 'Repair', 'In Service');<br>
 INSERT INTO AfterSalesServiceOrder VALUES (26, 26, 'Refund', 'Completed');<br>
 INSERT INTO AfterSalesServiceOrder VALUES (27, 27, 'Repair', 'In Service');<br>
 INSERT INTO AfterSalesServiceOrder VALUES (28, 28, 'Repair', 'Completed');<br>
-INSERT INTO AfterSalesServiceOrder VALUES (29, 29, 'Repair', 'In Service');<br>
+INSERT INTO AfterSalesServiceOrder VALUES (29, 29, 'Repair', 'In Service');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/6e4e1b55-22dc-42d6-ab2a-54814832d120)
 #14. ServiceOrder Table & Data<br>
 CREATE TABLE ServiceOrder ( help_id INT NOT NULL,<br>
  job_id INT NOT NULL, service_date DATE NOT NULL,<br>
@@ -392,7 +407,8 @@ INSERT INTO ServiceOrder VALUES (5, 25, '2024-04-01');<br>
 INSERT INTO ServiceOrder VALUES (6, 26, '2024-04-02');<br>
 INSERT INTO ServiceOrder VALUES (7, 27, '2024-04-03');<br>
 INSERT INTO ServiceOrder VALUES (8, 28, '2024-04-04');<br>
-INSERT INTO ServiceOrder VALUES (9, 29, '2024-04-05');<br>
+INSERT INTO ServiceOrder VALUES (9, 29, '2024-04-05');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/7c8e50d3-0818-43ac-9bce-ded932012393)
 #15. ServiceDetail Table & Data<br>
 CREATE TABLE ServiceDetail ( help_id INT NOT NULL,<br>
  cu_id INT NOT NULL, service_date DATE NOT NULL,<br>
@@ -405,7 +421,8 @@ INSERT INTO ServiceDetail VALUES (5, 16, '2024-04-01');<br>
 INSERT INTO ServiceDetail VALUES (6, 15, '2024-04-02');<br>
 INSERT INTO ServiceDetail VALUES (7, 14, '2024-04-03');<br>
 INSERT INTO ServiceDetail VALUES (8, 13, '2024-04-04');<br>
-INSERT INTO ServiceDetail VALUES (9, 12, '2024-04-05');<br>
+INSERT INTO ServiceDetail VALUES (9, 12, '2024-04-05');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/19dc1a13-e27f-47a2-a6c4-113ca4bd56f8)
 #16. OrderDetail Table & Data<br>
 CREATE TABLE OrderDetail (<br>
  or_id INT NOT NULL, or_date DATE NOT NULL,<br>
@@ -420,7 +437,8 @@ INSERT INTO OrderDetail VALUES (26, '2024-03-27', 6);<br>
 INSERT INTO OrderDetail VALUES (27, '2024-03-27', 7);<br>
 INSERT INTO OrderDetail VALUES (28, '2024-03-27', 8);<br>
 INSERT INTO OrderDetail VALUES (29, '2024-03-27', 9);<br>
-INSERT INTO OrderDetail VALUES (30, '2024-03-27', 10);<br>
+INSERT INTO OrderDetail VALUES (30, '2024-03-27', 10);<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/b635b11e-a55e-41bd-9807-13f8bc3ab0c9)
 #17. SupplyInformation Table & Data<br>
 CREATE TABLE SupplyInformation (<br>
  good_id INT NOT NULL, shop_id INT NOT NULL,<br>
@@ -433,7 +451,8 @@ INSERT INTO SupplyInformation VALUES (4, 4, '2024-03-31');<br>
 INSERT INTO SupplyInformation VALUES (5, 5, '2024-03-29');<br>
 INSERT INTO SupplyInformation VALUES (7, 6, '2024-04-03');<br>
 INSERT INTO SupplyInformation VALUES (8, 5, '2024-04-04');<br>
-INSERT INTO SupplyInformation VALUES (10, 5, '2024-04-06');<br>
+INSERT INTO SupplyInformation VALUES (10, 5, '2024-04-06');<be>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/9669c461-5455-423c-9ca6-62466ee52f24)
 #18. Logistics_Information Table & Data<br>
 CREATE TABLE Logistics_Information ( exp_id INT PRIMARY KEY NOT NULL,<br>
  shop_id INT NOT NULL, tank_id INT, or_id INT NOT NULL,<br>
@@ -447,3 +466,60 @@ INSERT INTO Logistics_Information (exp_id , shop_id , tank_id , or_id , exp_now,
 (05, 5,null, 25, 'Delivered','rent'), (07, 6,null, 27, 'Shipped','rent'),<br>
 (08, 5,null, 28, 'Delivered','rent'), (010,5,null, 22,'Shipped','rent'),<br>
 (12,2,1,26, 'Processing','return'), (15,5,null,25,'Processing','return');<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/0aac8c9a-6ccb-48a5-8552-1d331a8a5d9e)
+6.2 Using SQL Statements to practice the SQL Knowledge
+#1Select the Good ID with a supply date after 2024-04-01<br>
+selectgood_id<br>
+fromSupplyInformation<br>
+wheresupply_date>'2024-04-01';<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/ebafcc06-103c-4854-932d-3ef33a23da74)
+#2Select Goods (id&name) with monthly sales greater than 10 and still in stock.
+select good_id, good_name<br>
+from Commodity<br>
+where good_status ='Y' and good_month >10;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/895b7a14-38bc-4a4d-ade0-5e0ed4225964)
+#3Sort brand by good monthly rent volume<br>
+select brand_id, sum(good_month) as TotalRentNumber from Commodity<br>
+group by brand_id<br>
+order by sum(good_month);<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/1377c449-ce31-4756-9306-995876d274d6)
+#4Select open orders<br>
+SELECT *<br>
+FROM Orders<br>
+WHERE or_now <> 'pending';<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/327174bf-fb3c-44f9-932b-0606eb52d225)
+#5Select the logistics order numbers of self-operated stores<br>
+select exp_id, exp_now, exp_type <br>
+from Logistics_Information<br>
+where tank_idis not null;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/b0861f5b-71d9-40b9-8e95-f92a54cd9442)
+#6Select goods related to warehouse 1<br>
+select l.tank_id, o.good_id, c. good_name, c. good_status<br>
+from Logistics_Information as l Inner join OrderDetail as o<br>
+on l.or_id = o.or_id<br>
+Inner join Commodity as con o.good_id = c.good_id<br>
+where l.tank_id =1;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/056624be-851b-4d99-b231-c3d783067b6b)
+#7 Select after-sales service content that appears frequently select job_content, count(job_content) as number<br>
+fromAfterSalesServiceorder<br>
+group by job_content<br>
+having count(job_content) > 1;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/c1e7ac9f-a012-41ff-9b47-b54da07d3638)
+#8Select stores with revenue greater than 1,000<br>
+SELECT s.shop_id, s.shop_name, SUM(c.good_month * c.good_price)AS TotalRevenue FROM SupplierAS s<br>
+LEFT JOIN CommodityAS c ON c.shop_id = s.shop_id<br>
+GROUP BY s.shop_id, s.shop_name<br>
+HAVING SUM(c.good_month * c.good_price) > 1000;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/baac0dd6-70de-4bee-82f8-6998388a5a0e)
+#9 Select the top 3 brands by sales
+SELECT TOP 3 b.brand_id, b.brand_name, c.good_id,good_name, (c.good_month * c.good_price) AS total_sales<br>
+FROM Brand AS b JOIN Commodity AS c <br>
+ON b.brand_id = c.brand_id <br>
+ORDER BY total_sales DESC;<br>
+![image](https://github.com/LIAMLEELYM/SQL-Project/assets/166018789/8489f0bc-6124-485b-864b-c10765ea9a92)
+
+7Conclusion
+We build a business case where Friday's Company is the company and we design a rental platform with a short-term leasing-based business, using current e-commerce platforms as a guide. In this report, we first started by thoroughly understanding Friday Company’s business model, product offerings, and customer needs. The goal is to create a robust database system that supports their rental platform. We identified key entities which are Customer, Customer Service, After-sales Service Order, Order, Customer, Commodity, Supplier, Other Supplier, Logistics information, Self SupplierandWarehouse.Based on the entities, we defined and established the relationships between entities, and high-level attributes were defined for each entity. After we confirmed the conceptual database design, we created an ER Diagram to visualize the relationships between entities and the attributes belonging to the entities. Based on the ER Diagram, we transformed entities into transnational vendors. With columns corresponding to attributes, each table represented an entity. The purpose of defining primary keys and foreign keys was to preserve data integrity. We took database management systems into consideration and developed the physical database using Microsoft SQL. We established data types, created tables, and set constraints using SQL statements and the relevant columns have been indexed for effective querying.
+Throughout the actual database using SQL statements, Friday Company is now equipped with a reliable and well-structured database system to manage its rental business. After the database Implementation. The database design ensured data consistency and successfully organized product information, including electronics, outdoor equipment, and luxury goods. Each product is represented as a record in the relevant tables. and the system efficiently handles product additions, updates, and deletions. System users can use the SELECT Statements to track and select meaningful information that they want and link them to specific products and customers.
+
+This is all of my project, If you encounter any issues or have questions, please feel free to contact me via email on my home page! Thank you for considering contributing to this project! I appreciate your interest and help in making this project better. 
