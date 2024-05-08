@@ -1,7 +1,9 @@
 title: DataBase Design - online rental company
 description: It is the project about SQL DataBase Design during my postgraduate study.
 show_downloads: false
-theme: jekyll-theme-architect
+#theme: jekyll-theme-architect
 github:
   is_project_page: false
 
+plugins:
+  - jekyll-theme-hamilton
